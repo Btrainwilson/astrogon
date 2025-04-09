@@ -11,6 +11,66 @@ interface Props {
 
 const { entry } = Astro.props;
 const { image, imageAlt, title, content, button } = entry.data;
+
+import raptorIMG from '../../assets/images/RAPTOR.png';
+import marioIMG from '../../assets/images/MarioBoltzmann.gif';
+import multiIMG from '../../assets/images/multiphysics_genmodel.svg'
+
+const projects = [
+  {
+    name: 'AI-Assisted Device Design',
+    description: "When designing devices, we try to generate designs to optimize some objective function, such as computation time, power draw, spectrum, etc. In the past, solving design problems relied on the designers intuition, searching large design spaces or even sampling NP-Hard problems. To reduce the design problem's difficulty, we use latent models, such as LDMs, GANs, and VAEs, to extract symmetries and features in the data to construct a more efficient search space for design optimizers. ",
+    tags: ["StatMech", "E&M"],
+    date: '2022',
+    img: './images/RAPTOR.png',
+    link: './'
+  },
+  {
+    title: 'Physics-Inspired Generative Modeling',
+    description: 'Generative modeling constructs probabilistic models often by exploiting symmetries, constraints, and physics in data to reduce what needs to be learned. ',
+    tags: ["StatMech", "E&M"],
+    date: '2024-Present',
+    img: '/images/MarioBoltzmann.gif'
+  },
+  {
+    name: 'Optimization',
+    description: '',
+    tags: ["StatMech", "E&M"], date: '2019-2024', link: 'https://www.purdue.edu',
+    img: '/images/multiphysics_genmodel.svg'
+  },
+];
+
+
+const researchAreas = [
+  {
+
+    title: 'AI-Assisted Device Design',
+    description: "When designing devices, we try to generate designs to optimize some objective function, such as computation time, power draw, spectrum, etc. In the past, solving design problems relied on the designers intuition, searching large design spaces or even sampling NP-Hard problems. To reduce the design problem's difficulty, we use latent models, such as LDMs, GANs, and VAEs, to extract symmetries and features in the data to construct a more efficient search space for design optimizers. ",
+    date: '2025',
+    image: raptorIMG,
+    tags: ["Device Design", "E&M"],
+    link: '/research/AI-Assisted Device Design',
+    height: 150
+  },
+  {
+    title: 'Physics-Inspired Generative Modeling',
+  description: 'Physics-inspired generative modeling leverages principles from statistical mechanics, electromagnetism, and other physical theories to build efficient and interpretable probabilistic models. By explicitly incorporating physical symmetries, constraints, and known laws into generative models, we significantly reduce the complexity and dimensionality of the learning problem. This approach enables accurate data generation, improved generalization, and deeper insights into underlying physical processes, making it especially powerful for applications in simulation, material science, and system prediction.',
+    link: "/research/physicsgenmodel",
+    tags: ["StatMech", "E&M"],
+    date: '2019-2024',
+    image: marioIMG,
+    height: 200
+  },
+  {
+    title: "Optimization",
+    description: "Optimization techniques aim to efficiently search large parameter spaces and solve complex, often NP-hard problems. We leverage advanced algorithms including Markov Chain Monte Carlo (MCMC) and Markov processes to explore solution spaces systematically, improving convergence and performance across applications in computational physics, machine learning, and device design.",
+    link: "/research/optimization",
+    tags: ["MCMC", "Markov Processes"],
+    date: '2019-2024',
+    image: multiIMG,
+    height: 150
+  },
+];
 ---
 
 <BaseLayout>
@@ -19,10 +79,9 @@ const { image, imageAlt, title, content, button } = entry.data;
     <div class="container">
       <div class="row justify-center">
         <div class="text-center lg:col-6">
-          {
-            image && (
-              <div class="blur-[0px]">
-                <Image
+          {image && (
+            <div class="blur-[0px]">
+              <Image
                 class="mb-6 w-64"
                 src={image}
                 alt={imageAlt}
@@ -30,25 +89,59 @@ const { image, imageAlt, title, content, button } = entry.data;
                 height={1024}
                 format="webp"
               />
-              </div>
-              
-            )
-          }
+            </div>
+          )}
           <h1 set:html={markdownify(title)} class="mb-4" />
           <p set:html={markdownify(content)} class="mb-8" />
-          {
-            button && (
-              <Button
-                label={button.label}
-                link={button.link}
-                newtab
-                hoverInvert
-                color=""
-              />
-            )
-          }
+          {button && (
+            <Button
+              label={button.label}
+              link={button.link}
+              newtab
+              hoverInvert
+              color=""
+            />
+          )}
         </div>
       </div>
+
+      <!-- Research Area Cards -->
+      <div class="container mt-12">
+        <div class="row justify-center gap-6">
+          {researchAreas.map((area, index) => (
+            <div class="glass rounded-lg p-6 intersect:animate-fadeUp opacity-0 intersect-no-queue w-full mb-6 flex flex-col lg:flex-row items-center">
+              {(index % 2 === 0) && area.image && (
+                <Image
+                  class="rounded-lg mb-4 lg:mb-0 lg:mr-6"
+                  src={area.image}
+                  alt={area.title}
+                  height={area.height}
+                />
+              )}
+              <div class="text-center lg:text-left flex-1">
+                <h3 class="mb-2 text-xl font-semibold">{area.title}</h3>
+                <div class="mb-4">
+                  {area.tags.map(tag => (
+                    <span class="inline-block bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded mr-2">{tag}</span>
+                  ))}
+                </div>
+                <p class="mb-4 text-sm">{area.description}</p>
+                <Button label="Learn More" link={area.link} hoverInvert />
+              </div>
+              {(index % 2 !== 0) && area.image && (
+                <Image
+                  class="rounded-lg mt-4 lg:mt-0 lg:ml-6"
+                  src={area.image}
+                  alt={area.title}
+                  height={area.height}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   </section>
 </BaseLayout>
+

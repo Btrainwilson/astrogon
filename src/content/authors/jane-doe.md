@@ -1,5 +1,5 @@
 ---
-title: Jane Doe
+title: Blake A. Wilson 
 email: janedoe@email.com
 image: "@assets/profile/jane-doe.jpg"
 social:

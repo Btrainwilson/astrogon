@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@components/base/BaseLayout.astro";
+import { markdownify } from "@lib/textConverter";
+import { Image } from "astro:assets";
+import profile from "@assets/profile/avatar.png";
+import type { AboutEntry } from "@/types";
+import { render } from "astro:content";
+import PrintCV from "@components/cv/printcv.tsx"
+
+interface Props {
+  entry: AboutEntry;
+}
+
+const { entry } = Astro.props;
+const { title, description, image, imageAlt } = entry.data;
+const { Content } = await render(entry);
+---
+
+  <BaseLayout title={title} description={description} image={image?.src}>
+    <section class="section-sm">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="glass rounded-lg  intersect:animate-fadeUp opacity-0 intersect-no-queue">
+            <PrintCV/>
+          </div>
+        </div>
+      </div>
+    </section>
+  </BaseLayout>

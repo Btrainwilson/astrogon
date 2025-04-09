@@ -1,8 +1,8 @@
 ---
-title: Hey, I'm Jane Doe!
+title: Hey, I'm Blake Anthony!
 description: this is meta description
-image: "@assets/profile/jane-doe.jpg"
+image: "@assets/images/profile.jpg"
 draft: false
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis illum nesciunt commodi vel nisi ut alias excepturi ipsum, totam, labore tempora, odit ex iste tempore sed. Fugit voluptatibus perspiciatis assumenda nulla ad nihil, omnis vel, doloremque sit quam autem optio maiores, illum eius facilis et quo consectetur provident dolor similique! Enim voluptatem dicta expedita veritatis repellat dolorum impedit, provident quasi at.
+I lead research efforts developing statistical methods for generative modeling and optimization in the context of multiphysics and design. Currently, I am leading research efforts with the NanoML team at Purdue University and the AI for Quantum team at Quantinuum in developing latent polynomial and graph learning, machine learning assisted generative optimization models, and fundamental generative modeling techniques for multimodal graph network and multiphysics applications. Our research is highly interdisciplinary, and I am always looking for new collaborators. If you are interested in working with us, please reach out!

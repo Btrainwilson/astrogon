@@ -1,12 +1,16 @@
 <!-- ---
-// Twinkling Star Background 
+// Twinkling Star Background
 const numStars = 1600;
+---
+// Twinkling Star Background
+const numStars = 400;
+>>>>>>> Stashed changes
 const stars = Array.from({ length: numStars }).map(() => ({
   left: `${Math.random() * 100}%`,
   top: `${Math.random() * 100}%`,
   size: `${Math.random() * 2 + 1}px`,
   delay: `${7 * Math.random()}s`,
-  // hsl: `hsl(${Math.random() * 360}, 100%, 50%)`, // background: ${hsl}; 
+  // hsl: `hsl(${Math.random() * 360}, 100%, 50%)`, // background: ${hsl};
 }));
 ---
 <div
@@ -15,7 +19,7 @@ const stars = Array.from({ length: numStars }).map(() => ({
   {
     stars.map(({ left, top, size, delay }) => (
       <div
-        class="absolute bg-none dark:bg-yellow-50 rounded-full animate-twinkle"
+        class="absolute bg-none dark:bg-purple-300 rounded-full animate-twinkle"
         style={`
             left: ${left};
             top: ${top};

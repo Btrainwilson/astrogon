@@ -1,0 +1,40 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "CV",
+      "url": "/cv"
+    },
+    {
+      "name": "About",
+      "url": "/about"
+    },
+    {
+      "name": "Docs",
+      "url": "/docs"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "name": "Recipes",
+      "url": "/recipes"
+    },
+    {
+      "name": "Index Cards",
+      "url": "/index-cards"
+    },
+    {
+      "name": "Authors",
+      "url": "/authors"
+    },
+    {
+      "name": "Portfolio",
+      "url": "/portfolio"
+    }
+  ]
+}
